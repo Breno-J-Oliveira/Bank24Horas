@@ -184,21 +184,18 @@ A organização do projeto foi estruturada no **Miro** para permitir o acompanha
 <table>
   <tr>
     <td align="center">
-      <img src="./capturas/capturas4.png" alt="Miro - Visão geral do projeto" width="100%">
+      <img src="./capturas/capturas4.png" alt="Miro - Visão geral" width="100%">
     </td>
     <td align="center">
-      <img src="./capturas/capturas5.png" alt="Miro - Planejamento das tarefas" width="100%">
+      <img src="./capturas/capturas5.png" alt="Miro - Planejamento" width="100%">
     </td>
+  </tr>
+  <tr>
     <td align="center">
       <img src="./capturas/capturas6.png" alt="Miro - Macro tarefas" width="100%">
     </td>
     <td align="center">
       <img src="./capturas/capturas7.png" alt="Miro - Micro tarefas" width="100%">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="4" align="center">
-      <img src="./capturas/capturas8.png" alt="Miro - Organização final do board" width="70%">
     </td>
   </tr>
 </table>
