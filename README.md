@@ -207,6 +207,12 @@ A organização do projeto foi estruturada no **Miro** para permitir o acompanha
 O 5W2H foi utilizado para estruturar a visão estratégica do projeto, definindo claramente os objetivos, responsáveis, metodologia e resultados esperados. Essa abordagem contribuiu para um planejamento mais eficiente e alinhado com as metas do sistema.
 
 <p align="center">
+  <a href="https://docs.google.com/spreadsheets/d/1vduRhJ26OMIQ0MMlZG1XrO3pNI5mBzvpwuY9XAGBqhc/edit?usp=sharing" target="_blank">
+    <img src="https://img.shields.io/badge/Acessar%20Tabela%20no-Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white" alt="Acessar tabela no Excel">
+  </a>
+</p>
+
+<p align="center">
   <img src="./capturas/capturas9.png" alt="5W2H do projeto Bank 24 Horas" width="100%">
 </p>
 
