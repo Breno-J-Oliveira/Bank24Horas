@@ -157,8 +157,6 @@ Abaixo estão algumas capturas que ilustram a interface moderna e as funcionalid
   <em><strong>Figura 3:</strong> Visualização do extrato bancário detalhado com opção para exportação em documento PDF.</em>
 </p>
 
-*(Nota: Certifique-se de que as imagens existam fisicamente no caminho `./capturas/` do repositório).*
-
 ---
 
 ## 🎨 Protótipo no Figma
