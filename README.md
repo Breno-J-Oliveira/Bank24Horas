@@ -296,7 +296,7 @@ Gostou do projeto? Conecte-se comigo através das minhas redes para conversarmos
   <a href="https://www.linkedin.com/in/breno-j-oliveira-672619352/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
-  <a href="https://www.instagram.com/brenot300" target="_blank">
+  <a href="https://www.instagram.com/brenoov" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
   </a>
   <a href="https://x.com/BrenoJOliveira_" target="_blank">
