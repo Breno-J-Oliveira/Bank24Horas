@@ -173,11 +173,45 @@ A concepção visual e a experiência do usuário (UX/UI) foram planejadas metic
 
 ## 📊 Organização no Miro
 
-O gerenciamento do projeto e o mapeamento do fluxo de trabalho foram estruturados utilizando a plataforma **Miro**. Lá, a equipe realizou:
-* Brainstorming de funcionalidades essenciais.
-* Divisão de tarefas através de metodologias ágeis (Kanban).
-* Definição da arquitetura do banco de dados e do fluxo de navegação do usuário.
-* Acompanhamento e validação das entregas ao longo dos sprints de desenvolvimento.
+A organização do projeto foi estruturada no **Miro** para permitir o acompanhamento das macro e micro tarefas, a distribuição das atividades entre a equipe e a visualização do progresso geral do desenvolvimento. O board foi utilizado para registrar o planejamento do sistema, os cartões em andamento e as entregas concluídas, mantendo o fluxo do projeto bem definido e documentado.
+
+<p align="center">
+  <a href="https://miro.com/welcomeonboard/NGNhWVRxeWdMOFBEWEZpZG8yZjdXSzlNVDBsM3FJaGpHcmFObXdxV2RiS0NJaWlVUE5rZ25lYWRwalM5a0xWcmpXQzNNOGpGSTJmRFNyenlGaFJXNHZRS1F6QXhyWVl4dnAyOFFaWTZQek5Pd2daMmFuUEpWMjJwdmpvTWZQQUhNakdSWkpBejJWRjJhRnhhb1UwcS9BPT0hdjE=?share_link_id=138496012116" target="_blank">
+    <img src="https://img.shields.io/badge/Acessar%20Board%20no-Miro-050038?style=for-the-badge&logo=miro&logoColor=white" alt="Ver no Miro">
+  </a>
+</p>
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="./capturas/capturas4.png" alt="Miro - Visão geral do projeto" width="100%">
+    </td>
+    <td align="center">
+      <img src="./capturas/capturas5.png" alt="Miro - Planejamento das tarefas" width="100%">
+    </td>
+    <td align="center">
+      <img src="./capturas/capturas6.png" alt="Miro - Macro tarefas" width="100%">
+    </td>
+    <td align="center">
+      <img src="./capturas/capturas7.png" alt="Miro - Micro tarefas" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="4" align="center">
+      <img src="./capturas/capturas8.png" alt="Miro - Organização final do board" width="70%">
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🧾 5W2H
+
+O 5W2H foi utilizado para estruturar a visão estratégica do projeto, definindo claramente os objetivos, responsáveis, metodologia e resultados esperados. Essa abordagem contribuiu para um planejamento mais eficiente e alinhado com as metas do sistema.
+
+<p align="center">
+  <img src="./capturas/capturas9.png" alt="5W2H do projeto Bank 24 Horas" width="100%">
+</p>
 
 ---
 
