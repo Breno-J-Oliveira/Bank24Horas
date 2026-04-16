@@ -1,11 +1,55 @@
 # 🏦 Bank 24 Horas - Sistema Bancário Digital
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-CONCLUÍDO-10B981?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Status do Projeto">
+  <img src="https://img.shields.io/badge/Status-DESENVOLVIDO-10B981?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Status do Projeto">
   <img src="https://img.shields.io/badge/Versão-1.0-2563EB?style=for-the-badge" alt="Versão">
-  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Projeto-Full%20Stack-111827?style=for-the-badge" alt="Full Stack">
+</p>
+
+<p align="center">
+  <!-- Front-end -->
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+  <img src="https://img.shields.io/badge/p5.js-ED225D?style=for-the-badge&logo=p5.js&logoColor=white">
+</p>
+
+<p align="center">
+  <!-- Back-end -->
+  <img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white">
+  <img src="https://img.shields.io/badge/PDO-000000?style=for-the-badge&logo=php&logoColor=white">
+  <img src="https://img.shields.io/badge/Session-333333?style=for-the-badge">
+</p>
+
+<p align="center">
+  <!-- Banco -->
+  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+</p>
+
+<p align="center">
+  <!-- APIs e recursos -->
+  <img src="https://img.shields.io/badge/Fetch%20API-000000?style=for-the-badge">
+  <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge">
+  <img src="https://img.shields.io/badge/LocalStorage-444444?style=for-the-badge">
+</p>
+
+<p align="center">
+  <!-- PDF -->
+  <img src="https://img.shields.io/badge/jsPDF-AutoTable-FF6F00?style=for-the-badge">
+</p>
+
+<p align="center">
+  <!-- Ferramentas -->
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
+  <img src="https://img.shields.io/badge/Miro-050038?style=for-the-badge&logo=miro&logoColor=white">
+  <img src="https://img.shields.io/badge/XAMPP-FB7A24?style=for-the-badge&logo=xampp&logoColor=white">
+  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
+</p>
+
+<p align="center">
+  <!-- Versionamento -->
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
 </p>
 
 ---
