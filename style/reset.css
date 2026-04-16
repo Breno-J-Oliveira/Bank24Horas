@@ -1,0 +1,113 @@
+/* =========================================
+    1. VARIÁVEIS DE TEMA (UNIFICADAS)
+   ========================================= */
+:root {
+    /* Modo Claro (Padrão) */
+    --bg-site: #eeebe6; 
+    --bg-container: rgba(255, 255, 255, 0.75); 
+    --text-title: #222;
+    --text-main: #444;
+    --cor-destaque: #ff6600;
+    --input-bg: rgba(255, 255, 255, 0.9);
+    --modal-bg: #ffffff;
+    --modal-text: #333;
+    --font-main: 'Segoe UI', Roboto, sans-serif;
+}
+
+html.dark-theme {
+    /* Modo Escuro */
+    --bg-site: #121212;
+    --bg-container: rgba(30, 30, 30, 0.8);
+    --text-title: #ffffff;
+    --text-main: #cccccc;
+    --input-bg: rgba(45, 45, 45, 0.9);
+    --modal-bg: #1e1e1e;
+    --modal-text: #f0f0f0;
+}
+
+/* =========================================
+    2. RESET ESTRUTURAL
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-site);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.5;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    transition: background-color 3s ease; /* Transição suave de cor */
+}
+
+/* Elementos de Mídia */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Reset de Botões e Inputs */
+input, button, textarea, select {
+    font: inherit;
+    border: none;
+    outline: none;
+}
+
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+
+/* =========================================
+    3. SWITCH GLOBAL (SOL/LUA)
+   ========================================= */
+.theme-switch-wrapper {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    background-color: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    transition: .5s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em; width: 1.4em;
+    border-radius: 50%;
+    left: 10%; bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: #28096b;
+    transition: .5s;
+}
+
+input:checked + .slider { background-color: #522ba7; }
+input:checked + .slider:before {
+    transform: translateX(1.5em);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+}

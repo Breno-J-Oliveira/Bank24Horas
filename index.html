@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank 24 Horas</title>
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/index1.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    
+    <script src="script/theme.js" defer></script>
+</head>
+<body>
+
+    <div class="theme-switch-wrapper">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <main>
+        <div class="container">
+             <h1>Bank 24 Horas</h1>
+             <p>Faça Login Para Começar</p>
+
+             <div class="login-box">
+                <label for="login">Login:</label>
+                <input type="text" id="login" placeholder="Digite seu login">
+                
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" placeholder="Digite sua senha">
+                
+                <button class="btn" type="button" onclick="entrar()">Entrar</button>
+            </div>
+        </div>
+    </main>
+
+
+    <div id="modalBemVindo" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>Sucesso!</h2>
+            <p id="modalMensagem">Bem-vindo(a) ao Bank 24 Horas!</p>
+            <button class="modal-btn" onclick="irParaCarteira()">Acessar Carteira</button>
+        </div>
+    </div>
+
+    <div id="fundo-animado"></div>
+
+    <script src="script/index1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank 24 Horas - Conta</title>
+
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/index3.css">
+    
+    <script src="script/theme.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>window.jsPDF = window.jspdf.jsPDF;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <button class="voltar-btn" onclick="window.location.href='index2.html'">← Voltar à Carteira</button>
+    
+    <div class="theme-switch-wrapper">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="main-container">
+      <div class="border">
+        <div class="card">
+          <div class="shadow">
+            <div class="content">
+              <p class="rev" id="nomeBancoCartao">Banco</p>
+              <div class="chip"></div>
+              <p class="ultra-text" id="numCartaoUI">**** **** **** 0000</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caixa">
+        <h2 id="tituloMenu">Menu de Operações</h2>
+        <div class="btn-grid">
+            <button class="op-btn" onclick="verSaldo()">Ver saldo</button>
+            <button class="op-btn" onclick="sacar()">Saque</button>
+            <button class="op-btn" onclick="depositar()">Depósito</button>
+            <button class="op-btn" onclick="transferir()">Transferência</button>
+            <button class="op-btn" onclick="mostrarExtrato()">Extrato</button>
+            <button class="op-btn" onclick="gerarPDF()">Baixar PDF</button>
+            <button class="op-btn btn-sair" onclick="sair()">Sair da Conta Segura</button>
+        </div>
+        <h3 id="saldoTela"></h3>
+        <h2 id="tituloExtrato" style="display:none;">Extrato Bancário</h2>
+        <ul id="historico"></ul>
+    </div>
+
+    <script src="script/index3.js"></script>
+</body>
+</html>

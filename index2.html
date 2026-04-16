@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank 24 Horas - Carteira</title>
+
+    <link rel="stylesheet" href="style/reset.css">
+    
+    <link rel="stylesheet" href="style/index2.css">
+    
+    <script src="script/theme.js" defer></script>
+</head>
+<body>
+
+  <div class="theme-switch-wrapper">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+
+    <div class="header-boas-vindas">
+        <h1>Bank 24 Horas</h1>
+        <p id="mensagem-boas-vindas">Carregando...</p>
+    </div>
+
+    <div class="app-container">
+      <div class="wallet" id="wallet-container">
+        <div class="wallet-back"></div>
+        
+        <div class="pocket">
+          <svg class="pocket-svg" viewBox="0 0 280 160" fill="none">
+            <path d="M 0 20 C 0 10, 5 10, 10 10 C 20 10, 25 25, 40 25 L 240 25 C 255 25, 260 10, 270 10 C 275 10, 280 10, 280 20 L 280 120 C 280 155, 260 160, 240 160 L 40 160 C 20 160, 0 155, 0 120 Z" fill="#1e341e"></path>
+          </svg>
+          <div class="pocket-content">
+            <div style="position: relative; height: 24px; width: 100%;">
+              <div class="balance-stars">******</div>
+              <div class="balance-real" id="saldo-total">$0.00</div>
+            </div>
+            <div style="color: #698263; font-size: 12px; font-weight: 500;">Saldo Total</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script/index2.js"></script>
+</body>
+</html>

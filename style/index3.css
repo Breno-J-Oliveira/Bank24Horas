@@ -1,0 +1,230 @@
+/* =========================================
+   1. VARIÁVEIS E TEMAS
+   ========================================= */
+:root {
+    /* Cores Injetadas pelo JS (Padrão) */
+    --banco-cor-principal: #333;
+    --banco-cor-secundaria: #555;
+    --banco-cor-texto: #fff;
+    
+    /* Modo Claro (Padrão) */
+    --bg-body: #f0f2f5;
+    --caixa-bg: #ffffff;
+    --caixa-texto: #111111;
+    --borda-caixa: rgba(0, 0, 0, 0.1);
+}
+
+html.dark-theme {
+    /* Modo Escuro */
+    --bg-body: #121212;
+    --caixa-bg: #1e1e1e;
+    --caixa-texto: #ffffff;
+    --borda-caixa: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   2. RESET E ESTRUTURA BASE (À prova de bugs)
+   ========================================= */
+* {
+    box-sizing: border-box; /* Impede que paddings quebrem os tamanhos */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+    background-color: var(--bg-body);
+    color: var(--caixa-texto);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    min-height: 100vh;
+    padding: 80px 20px 40px; /* Espaço extra no topo para o botão voltar */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================
+   3. BOTÃO VOLTAR E TEMA
+   ========================================= */
+.voltar-btn {
+    position: absolute; 
+    top: 20px; 
+    left: 20px;
+    padding: 10px 15px; 
+    border-radius: 20px; 
+    border: 1px solid var(--banco-cor-principal);
+    color: var(--banco-cor-principal); 
+    background-color: var(--caixa-bg);
+    cursor: pointer; 
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.voltar-btn:hover {
+    background-color: var(--banco-cor-principal);
+    color: var(--banco-cor-texto);
+}
+
+.theme-switch-wrapper {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+}
+
+
+/* =========================================
+   4. CARTÃO 3D (SIMPLIFICADO E BLINDADO)
+   ========================================= */
+.main-container {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    margin: 0 auto 40px auto; /* Centraliza e dá espaço embaixo */
+    perspective: 1000px;
+    z-index: 10;
+}
+
+.card {
+    position: relative; /* Isso é o que segura os textos dentro do cartão! */
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: var(--banco-cor-principal);
+    background-image: linear-gradient(135deg, var(--banco-cor-principal), var(--banco-cor-secundaria));
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 300ms ease;
+    overflow: hidden; /* Impede que qualquer coisa vaze pelas bordas */
+}
+
+.card:hover {
+    transform: scale(1.05) rotateY(5deg) rotateZ(1deg);
+}
+
+.rev {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--banco-cor-texto);
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.chip {
+    position: absolute;
+    top: 65px;
+    left: 20px;
+    width: 45px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+}
+
+.ultra-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: var(--banco-cor-texto);
+    font-size: 18px;
+    font-family: monospace;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* =========================================
+   5. PAINEL DE OPERAÇÕES (CAIXA)
+   ========================================= */
+.caixa {
+    background: var(--caixa-bg); 
+    color: var(--caixa-texto);
+    width: 100%;
+    max-width: 500px; 
+    padding: 30px; 
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2); 
+    text-align: center;
+    border: 1px solid var(--borda-caixa);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.caixa h2 { 
+    margin-bottom: 25px; 
+    font-size: 1.4rem;
+}
+
+.btn-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
+    margin-bottom: 25px; 
+}
+
+button.op-btn {
+    padding: 12px; 
+    border: 2px solid var(--banco-cor-principal); 
+    border-radius: 8px;
+    background-color: transparent; 
+    color: var(--caixa-texto); 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: all 0.3s ease;
+}
+
+button.op-btn:hover { 
+    background-color: var(--banco-cor-principal); 
+    color: var(--banco-cor-texto); 
+}
+
+.btn-sair { 
+    border-color: #d9534f !important; 
+    color: #d9534f !important; 
+    grid-column: span 2; 
+}
+
+.btn-sair:hover { 
+    background-color: #d9534f !important; 
+    color: white !important; 
+}
+
+/* =========================================
+   6. SALDO E HISTÓRICO
+   ========================================= */
+#saldoTela { 
+    font-size: 24px; 
+    color: var(--banco-cor-principal); 
+    margin: 20px 0; 
+    min-height: 30px; 
+}
+
+#tituloExtrato {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#historico { 
+    text-align: left; 
+    list-style: none; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    border-top: 1px solid var(--borda-caixa); 
+    padding-top: 10px; 
+}
+
+#historico li { 
+    padding: 10px 5px; 
+    border-bottom: 1px dashed var(--borda-caixa); 
+    font-size: 14px; 
+}
+
+/* Estilo da barra de rolagem do histórico */
+#historico::-webkit-scrollbar {
+    width: 6px;
+}
+#historico::-webkit-scrollbar-track {
+    background: var(--bg-body); 
+    border-radius: 4px;
+}
+#historico::-webkit-scrollbar-thumb {
+    background: var(--banco-cor-secundaria); 
+    border-radius: 4px;
+}
