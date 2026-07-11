@@ -1,0 +1,8 @@
+PHP/config.php
+.env
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/

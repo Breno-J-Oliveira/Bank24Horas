@@ -40,46 +40,50 @@ window.acessarConta = function(nomeBanco, numCartao, idCartao) {
 };
 
 // Função que desenha os cartões na tela (mantendo 100% do seu visual)
+function escaparHTML(str) {
+    return String(str).replace(/[&<>"']/g, caractere => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[caractere]));
+}
+
 function renderizarCartoes(cartoes, nomeCompleto) {
     const pocketElement = document.querySelector('.pocket'); 
 
     cartoes.forEach((cartao, index) => {
         const posClass = `card-pos-${index + 1}`;
-        
-        // Cores baseadas no banco real na carteira
-        let corFundo = '#333';
-        if(cartao.banco === 'Nubank') corFundo = '#8a05be';
-        if(cartao.banco === 'Itaú') corFundo = '#ec7000';
-        if(cartao.banco === 'Santander') corFundo = '#cc0000';
-        if(cartao.banco === 'Caixa') corFundo = '#005ca9';
-        if(cartao.banco === 'Banco do Brasil') corFundo = '#fcf82a';
-        if(cartao.banco === 'Inter') corFundo = '#ff7a00';
-        if(cartao.banco === 'Bradesco') corFundo = '#cc092f';
-        
-        let corTexto = (cartao.banco === 'Banco do Brasil') ? '#003da5' : '#fff';
+        const coresBanco = window.BANCOS_CORES[cartao.banco];
+        const corFundo = coresBanco ? coresBanco.cartao.fundo : '#333';
+        const corTexto = coresBanco ? coresBanco.cartao.texto : '#fff';
 
         // Note que cartao.tipo_info vem com underline pois é assim que está na tabela MySQL
         const cartaoHTML = `
-            <div class="card ${posClass}" style="background: ${corFundo}; color: ${corTexto}" onclick="acessarConta('${cartao.banco}', '${cartao.final}', ${cartao.id})">
+            <div class="card ${posClass}" style="background: ${corFundo}; color: ${corTexto}">
                 <div class="card-inner">
                 <div class="card-top">
-                    <span>${cartao.banco}</span>
+                    <span>${escaparHTML(cartao.banco)}</span>
                     <div class="chip"></div>
                 </div>
                 <div class="card-bottom">
                     <div class="card-info">
-                    <span class="label">${cartao.tipo_info}</span>
-                    <span class="value">${nomeCompleto}</span>
+                    <span class="label">${escaparHTML(cartao.tipo_info)}</span>
+                    <span class="value">${escaparHTML(nomeCompleto)}</span>
                     </div>
                     <div class="card-number-wrapper">
-                    <span class="hidden-stars">**** ${cartao.final}</span>
-                    <span class="card-number">${cartao.numero}</span>
+                    <span class="hidden-stars">**** ${escaparHTML(cartao.final)}</span>
+                    <span class="card-number">${escaparHTML(cartao.numero)}</span>
                     </div>
                 </div>
                 </div>
             </div>
         `;
         pocketElement.insertAdjacentHTML('beforebegin', cartaoHTML);
+        pocketElement.previousElementSibling.addEventListener('click', () => {
+            acessarConta(cartao.banco, cartao.final, cartao.id);
+        });
     });
 }
 

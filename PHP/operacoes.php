@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($dados->acao)) {
             // Saque ou Depósito
             $cartao_id = $dados->cartao_id;
             $valor = floatval($dados->valor);
+            if ($valor <= 0) {
+                throw new Exception("Valor inválido.");
+            }
             $tipo = $dados->tipo; // 'saque' ou 'deposito'
             $bancoNome = $dados->bancoNome;
 
@@ -58,6 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($dados->acao)) {
         else if ($dados->acao === 'transferencia') {
             $cartao_id = $dados->cartao_id;
             $valor = floatval($dados->valor);
+            if ($valor <= 0) {
+                throw new Exception("Valor inválido.");
+            }
             $destinatario_login = $dados->destinatario;
             $bancoNome = $dados->bancoNome;
 
@@ -81,10 +87,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($dados->acao)) {
             $stmt = $pdo->prepare("UPDATE cartoes SET saldo = saldo - ? WHERE id = ? AND usuario_id = ?");
             $stmt->execute([$valor, $cartao_id, $user_id]);
 
-            // 4. Bota no primeiro cartão do destinatário
-            $stmtFirstCard = $pdo->prepare("SELECT id FROM cartoes WHERE usuario_id = ? LIMIT 1");
-            $stmtFirstCard->execute([$destinatario['id']]);
+            // 4. Bota no cartão do destinatário no mesmo banco, quando disponível
+            $stmtFirstCard = $pdo->prepare("SELECT id FROM cartoes WHERE usuario_id = ? AND banco = ? LIMIT 1");
+            $stmtFirstCard->execute([$destinatario['id'], $bancoNome]);
             $primeiroCartao = $stmtFirstCard->fetchColumn();
+
+            if (!$primeiroCartao) {
+                $stmtFirstCard = $pdo->prepare("SELECT id FROM cartoes WHERE usuario_id = ? LIMIT 1");
+                $stmtFirstCard->execute([$destinatario['id']]);
+                $primeiroCartao = $stmtFirstCard->fetchColumn();
+            }
 
             if($primeiroCartao) {
                 $stmtAdd = $pdo->prepare("UPDATE cartoes SET saldo = saldo + ? WHERE id = ?");

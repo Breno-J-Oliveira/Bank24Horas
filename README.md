@@ -248,9 +248,9 @@ Para executar o Bank 24 Horas localmente, você precisará dos seguintes softwar
 
 1. Inicie o painel de controle do **XAMPP** e ative os módulos **Apache** e **MySQL**.
 2. Acesse o `phpMyAdmin` pelo navegador (geralmente em `http://localhost/phpmyadmin`).
-3. Crie um novo banco de dados (ex: `bank24horas_db`).
-4. Importe o arquivo SQL (fornecido na pasta do projeto) para criar as tabelas necessárias de usuários, contas e transações.
-5. Verifique o arquivo de conexão PDO dentro da pasta do backend (ex: `conexao.php`) e ajuste as credenciais (usuário e senha do banco) caso necessário.
+3. Importe o arquivo `database/schema.sql` para criar o banco `bank24horas` e as tabelas (`usuarios`, `cartoes`, `historico`).
+4. **Configure as credenciais** copiando `PHP/config.example.php` para `PHP/config.php` e ajustando `host`, `db`, `user` e `pass` (o `config.php` é ignorado pelo Git para não expor senhas). Alternativamente, defina as variáveis de ambiente `DB_HOST`, `DB_NAME`, `DB_USER` e `DB_PASS`.
+5. **Popule os dados de exemplo** (usuários e cartões) executando o `setup.php` pela linha de comando: `php PHP/setup.php`. Por segurança, o `setup.php` recusa execução via navegador a menos que a variável de ambiente `SETUP_TOKEN` esteja definida e seja passada como `?token=`. Os logins criados são `breno`, `Mariana`, `Vinicius` e `Nicolas`, todos com a senha `123` (armazenada com hash `password_hash`).
 
 ---
 
