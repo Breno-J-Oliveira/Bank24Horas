@@ -86,14 +86,14 @@ O projeto apresenta uma interface rica e responsiva, oferecendo desde a autentic
 
 O sistema conta com um escopo amplo de operações essenciais para o gerenciamento de contas virtuais:
 
-* 🔐 **Autenticação Segura:** Tela de login validada e sistema de persistência de sessão.
+* 🔐 **Autenticação Segura:** Login com senhas armazenadas em hash (`password_hash`/`password_verify`) e persistência de sessão no servidor.
 * 🌓 **Personalização de Interface:** Alternância fluida entre o Tema Claro e Escuro.
 * ✨ **Imersão Visual:** Animações interativas de fundo implementadas com *p5.js*.
 * 💳 **Carteira Digital:** Visualização gráfica de cartões e gerenciamento de saldo em tempo real.
 * 🏦 **Operações Bancárias:**
     * Depósitos diretos na conta.
-    * Saques com validação de saldo disponível.
-    * Transferências entre contas e bancos.
+    * Saques com validação de saldo disponível (checada no back-end).
+    * Transferências entre contas — o valor é creditado preferencialmente em um cartão do destinatário no mesmo banco do remetente.
 * 📄 **Extrato Dinâmico:** Organização cronológica do histórico completo de operações financeiras.
 * 🖨️ **Geração de Relatórios:** Exportação do extrato bancário em formato PDF utilizando *jsPDF* e *jsPDF-AutoTable*.
 * 🔄 **Integração Backend:** Carregamento de dados assíncrono e dinâmico diretamente do banco de dados (Fetch API + JSON).
@@ -258,15 +258,24 @@ Para executar o Bank 24 Horas localmente, você precisará dos seguintes softwar
 
 1. Abra o terminal e clone o repositório dentro da pasta raiz do seu servidor local (no XAMPP, a pasta `htdocs`):
    ```bash
-   git clone [https://github.com/Breno-J-Oliveira/NOME_DO_REPOSITORIO.git](https://github.com/Breno-J-Oliveira/NOME_DO_REPOSITORIO.git)
+   git clone https://github.com/Breno-J-Oliveira/Bank24Horas.git
+   ```
 
-2. Acesse a pasta do projeto clonado.
+2. Acesse a pasta do projeto clonado e siga a seção [Configuração do Banco de Dados](#-configuração-do-banco-de-dados) para criar o `config.php`, importar o schema e popular os dados de exemplo.
 
-3. No seu navegador, digite:
+3. Com o Apache/MySQL do XAMPP ativos, acesse no navegador:
 
-   http://localhost/NOME_DO_REPOSITORIO/index.html
+   ```
+   http://localhost/Bank24Horas/index.html
+   ```
 
-4. Utilize as credenciais cadastradas no banco de dados para realizar o login e testar a plataforma.
+   Como alternativa ao XAMPP, você pode servir o projeto direto com o servidor embutido do PHP a partir da raiz do repositório e abrir `http://localhost:8000/index.html`:
+
+   ```bash
+   php -S localhost:8000
+   ```
+
+4. Faça login com um dos usuários de exemplo (`breno`, `Mariana`, `Vinicius` ou `Nicolas`), todos com a senha `123`.
 
 ## 🛤️ Fluxo do Sistema (Técnico)
 
@@ -282,6 +291,8 @@ Para executar o Bank 24 Horas localmente, você precisará dos seguintes softwar
 * Este é um projeto com foco educacional e de portfólio. Não insira dados sensíveis ou informações financeiras reais.
 * A alternância entre Tema Claro e Escuro é salva no `LocalStorage` do navegador, mantendo a preferência do usuário entre os acessos.
 * Certifique-se de que a extensão PDO esteja habilitada nas configurações do seu PHP (`php.ini`).
+* **Credenciais do banco** ficam em `PHP/config.php`, que é ignorado pelo Git (veja `PHP/config.example.php`); nunca faça commit das suas senhas reais.
+* O `PHP/setup.php` **recusa execução pelo navegador** por padrão — rode-o via linha de comando (`php PHP/setup.php`) ou defina a variável de ambiente `SETUP_TOKEN` e informe `?token=` na URL. Ele **apaga e recria** o banco `bank24horas`, então use apenas para (re)inicializar os dados de exemplo.
 
 ---
 
