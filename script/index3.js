@@ -25,7 +25,7 @@ async function carregarDadosDaAPI() {
         const resposta = await fetch('PHP/api.php');
         const dados = await resposta.json();
         if (!dados.sucesso) {
-            window.location.href = 'index1.html';
+            window.location.href = 'index.html';
             return;
         }
         dadosConta = dados.dados;
@@ -40,40 +40,9 @@ async function carregarDadosDaAPI() {
 // 3. GERENCIAMENTO DE TEMAS E CORES DINÂMICAS
 // =======================================================
 
-// Cores para o MODO CLARO (Vibrantes/Pastéis)
-const coresClaro = {
-    'Nubank': '#d8b4fe',
-    'Itaú': '#fed7aa',
-    'Santander': '#fca5a5',
-    'Bradesco': '#fda4af',
-    'Caixa': '#93c5fd',
-    'Banco do Brasil': '#fef08a',
-    'Inter': '#fdba74'
-};
-
-// Cores para o MODO ESCURO (Mais coloridas e vibrantes que antes)
-const coresEscuro = {
-    'Nubank': '#3b0a5e',          // Roxo vibrante escuro
-    'Itaú': '#5c2d00',            // Marrom alaranjado quente
-    'Santander': '#610000',       // Vermelho profundo
-    'Bradesco': '#6b0416',        // Vinho vibrante
-    'Caixa': '#003366',           // Azul royal escuro
-    'Banco do Brasil': '#4a4a00', // Dourado envelhecido escuro
-    'Inter': '#7a3d00'            // Laranja queimado intenso
-};
-
 function aplicarTema() {
-    const temasBancos = {
-        'Nubank': { p: '#8a05be', s: '#9e14d6', t: '#fff' },
-        'Itaú': { p: '#ec7000', s: '#ff9900', t: '#fff' },
-        'Santander': { p: '#cc0000', s: '#ff1a1a', t: '#fff' },
-        'Caixa': { p: '#005ca9', s: '#007bc9', t: '#fff' },
-        'Banco do Brasil': { p: '#fcf82a', s: '#ffe100', t: '#003da5' },
-        'Inter': { p: '#ff7a00', s: '#ff9100', t: '#fff' },
-        'Bradesco': { p: '#cc092f', s: '#e60000', t: '#fff' }
-    };
-
-    const tema = temasBancos[bancoAcessado] || { p: '#333333', s: '#555555', t: '#ffffff' };
+    const coresBanco = window.BANCOS_CORES[bancoAcessado];
+    const tema = coresBanco ? coresBanco.tema : { p: '#333333', s: '#555555', t: '#ffffff' };
     
     document.documentElement.style.setProperty('--banco-cor-principal', tema.p);
     document.documentElement.style.setProperty('--banco-cor-secundaria', tema.s);
@@ -82,9 +51,9 @@ function aplicarTema() {
     const isDarkMode = document.documentElement.classList.contains('dark-theme');
     
     if (isDarkMode) {
-        document.body.style.backgroundColor = coresEscuro[bancoAcessado] || '#1a1a1a';
+        document.body.style.backgroundColor = coresBanco ? coresBanco.escuro : '#1a1a1a';
     } else {
-        document.body.style.backgroundColor = coresClaro[bancoAcessado] || '#f8f9fa';
+        document.body.style.backgroundColor = coresBanco ? coresBanco.claro : '#f8f9fa';
     }
 }
 

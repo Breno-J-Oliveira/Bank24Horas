@@ -1,8 +1,13 @@
 <?php
-$host = 'localhost';
-$db   = 'bank24horas';
-$user = 'root';
-$pass = 'Senai@118';
+$caminhoConfig = __DIR__ . '/config.php';
+$config = file_exists($caminhoConfig)
+    ? require $caminhoConfig
+    : require __DIR__ . '/config.example.php';
+
+$host = $config['host'];
+$db   = $config['db'];
+$user = $config['user'];
+$pass = $config['pass'];
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);

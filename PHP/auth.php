@@ -19,8 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($dados->acao)) {
         $stmt->execute([$login]);
         $usuario = $stmt->fetch();
 
-        // Validação DIRETA: se o usuário existir e a senha for igual a do banco
-        if ($usuario && $usuario['senha'] === $senha) {
+        // Verifica a senha armazenada com hash
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['nome_completo'] = $usuario['nome_completo'];
             

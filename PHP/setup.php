@@ -1,11 +1,23 @@
 <?php
+if (php_sapi_name() !== 'cli') {
+    $tokenConfigurado = getenv('SETUP_TOKEN');
+    if (!$tokenConfigurado || !hash_equals($tokenConfigurado, $_GET['token'] ?? '')) {
+        http_response_code(403);
+        echo "Acesso não autorizado.";
+        exit;
+    }
+}
+
 // PHP/setup.php - VERSÃO ESCOLAR FINAL
 header("Content-Type: text/html; charset=utf-8");
 
 // Configurações de Conexão
-$host = 'localhost';
-$user = 'root';
-$pass = 'Senai@118';
+$config = file_exists(__DIR__ . '/config.php')
+    ? require __DIR__ . '/config.php'
+    : require __DIR__ . '/config.example.php';
+$host = $config['host'];
+$user = $config['user'];
+$pass = $config['pass'];
 
 try {
     // Conecta ao MySQL
@@ -52,21 +64,22 @@ try {
 
     // 3. Inserindo Usuários
     $stmtUser = $pdo->prepare("INSERT INTO usuarios (login, senha, nome_completo) VALUES (?, ?, ?)");
+    $senhaPadrao = password_hash('123', PASSWORD_DEFAULT);
     
     // Usuário 1
-    $stmtUser->execute(['breno', '123', 'Admin Breno']);
+    $stmtUser->execute(['breno', $senhaPadrao, 'Admin Breno']);
     $idBreno = $pdo->lastInsertId();
 
     // Usuário 2
-    $stmtUser->execute(['Mariana', '123', 'Mariana Nascimento']);
+    $stmtUser->execute(['Mariana', $senhaPadrao, 'Mariana Nascimento']);
     $idMariana = $pdo->lastInsertId();
 
     // Usuário 3
-    $stmtUser->execute(['Vinicius', '123', 'Vinicius Vila']);
+    $stmtUser->execute(['Vinicius', $senhaPadrao, 'Vinicius Vila']);
     $idVinicius = $pdo->lastInsertId();
 
     // Usuário 4
-    $stmtUser->execute(['Nicolas', '123', 'Nicolas da Silva']);
+    $stmtUser->execute(['Nicolas', $senhaPadrao, 'Nicolas da Silva']);
     $idNicolas = $pdo->lastInsertId();
 
     echo "<li>✅ 4 Usuários criados com sucesso.</li>";
